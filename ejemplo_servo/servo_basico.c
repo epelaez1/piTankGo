@@ -1,6 +1,11 @@
 
 #include "servo_basico.h"
-
+void delay_until (unsigned int next) {
+	unsigned int now = millis();
+	if (next > now) {
+		delay (next - now);
+	}
+}
 int flags_servo = 0;
 
 int InicializaServo (TipoServo *p_servo) {
@@ -22,10 +27,12 @@ int InicializaServo (TipoServo *p_servo) {
 
 	if(p_servo->posicion < p_servo->minimo)
 		p_servo->posicion = p_servo->minimo;
-
+	printf("Creando pin");
 	softPwmCreate (SERVO_PIN, p_servo->inicio, SERVO_PWM_RANGE); // Internamente ya hace: piHiPri (90) ;
+	printf("Escribiendo pulso");
 	softPwmWrite(SERVO_PIN, p_servo->posicion);
-
+	delay_until(millis() + 50);
+	// digitalWrite (SERVO_3V3_PIN, LOW);
 	return result;
 }
 
@@ -49,9 +56,10 @@ void MueveServoIzquierda (fsm_t* this) {
 
 	if(p_servo->posicion - p_servo->incremento >= p_servo->minimo) {
 		p_servo->posicion = p_servo->posicion - p_servo->incremento;
-
+		digitalWrite (SERVO_3V3_PIN, HIGH);
 		softPwmWrite(SERVO_PIN, p_servo->posicion);
-
+		delay_until(millis()+50);
+		digitalWrite (SERVO_3V3_PIN, LOW);
 		printf("[SERVO][POSICION]=[%d]\n", p_servo->posicion);
 		fflush(stdout);
 	}
@@ -66,7 +74,11 @@ void MueveServoDerecha (fsm_t* this) {
 	if(p_servo->posicion + p_servo->incremento <= p_servo->maximo) {
 		p_servo->posicion = p_servo->posicion + p_servo->incremento;
 
+		digitalWrite (SERVO_3V3_PIN, HIGH);
 		softPwmWrite(SERVO_PIN, p_servo->posicion);
+		delay_until(millis() + 50);
+		digitalWrite (SERVO_3V3_PIN, LOW);
+
 
 		printf("[SERVO][POSICION]=[%d]\n", p_servo->posicion);
 		fflush(stdout);
@@ -112,14 +124,10 @@ void procesa_teclado_PC (fsm_t* this) {
 }
 
 // wait until next_activation (absolute time)
-void delay_until (unsigned int next) {
-	unsigned int now = millis();
-	if (next > now) {
-		delay (next - now);
-	}
-}
+
 
 int main ()
+
 {
 	TipoServo servo;
 	unsigned int next;

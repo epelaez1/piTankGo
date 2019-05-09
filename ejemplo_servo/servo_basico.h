@@ -39,8 +39,8 @@
 #define SERVO_PWM_RANGE		400 // 100 * 400 = 40,000 µS = 40 ms // 25 Hz
 
 #define SERVO_INCREMENTO	1
-#define SERVO_MINIMO		9
-#define SERVO_MAXIMO		22
+#define SERVO_MINIMO		6
+#define SERVO_MAXIMO		23
 
 // Posibles estados de las FSMs
 enum fsm_state {

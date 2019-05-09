@@ -1,6 +1,5 @@
 
 #include "piTankGo_1.h"
-
 int frecuenciaDespacito[160] = {0,1175,1109,988,740,740,740,740,740,740,988,988,988,988,880,988,784,0,784,784,784,784,784,988,988,988,988,1109,1175,880,0,880,880,880,880,880,1175,1175,1175,1175,1318,1318,1109,0,1175,1109,988,740,740,740,740,740,740,988,988,988,988,880,988,784,0,784,784,784,784,784,988,988,988,988,1109,1175,880,0,880,880,880,880,880,1175,1175,1175,1175,1318,1318,1109,0,1480,1318,1480,1318,1480,1318,1480,1318,1480,1318,1480,1568,1568,1175,0,1175,1568,1568,1568,0,1568,1760,1568,1480,0,1480,1480,1480,1760,1568,1480,1318,659,659,659,659,659,659,659,659,554,587,1480,1318,1480,1318,1480,1318,1480,1318,1480,1318,1480,1568,1568,1175,0,1175,1568,1568,1568,1568,1760,1568,1480,0,1480,1480,1480,1760,1568,1480,1318};
 int tiempoDespacito[160] = {1200,600,600,300,300,150,150,150,150,150,150,150,150,300,150,300,343,112,150,150,150,150,150,150,150,150,300,150,300,300,150,150,150,150,150,150,150,150,150,300,150,300,800,300,600,600,300,300,150,150,150,150,150,150,150,150,300,150,300,343,112,150,150,150,150,150,150,150,150,300,150,300,300,150,150,150,150,150,150,150,150,150,300,150,300,450,1800,150,150,150,150,300,150,300,150,150,150,300,150,300,450,450,300,150,150,225,75,150,150,300,450,800,150,150,300,150,150,300,450,150,150,150,150,150,150,150,150,300,300,150,150,150,150,150,150,450,150,150,150,300,150,300,450,450,300,150,150,150,300,150,300,450,800,150,150,300,150,150,300,450};
 int frecuenciaGOT[518] = {1568,0,1046,0,1244,0,1397,0,1568,0,1046,0,1244,0,1397,0,1175,0,1397,0,932,0,1244,0,1175,0,1397,0,932,0,1244,0,1175,0,1046,0,831,0,698,0,523,0,349,0,784,0,523,0,523,0,587,0,622,0,698,0,784,0,523,0,622,0,698,0,784,0,523,0,622,0,698,0,587,0,698,0,466,0,622,0,587,0,698,0,466,0,622,0,587,0,523,0,523,0,587,0,622,0,698,0,784,0,523,0,622,0,698,0,784,0,523,0,622,0,698,0,587,0,698,0,466,0,622,0,587,0,698,0,466,0,622,0,587,0,523,0,0,1568,0,0,1046,0,0,1244,0,0,1397,0,0,1568,0,0,1046,0,0,1244,0,0,1397,0,0,1175,0,587,0,622,0,587,0,523,0,587,0,784,0,880,0,932,0,1046,0,1175,0,0,1397,0,0,932,0,0,1244,0,0,1175,0,0,1397,0,0,932,0,0,1244,0,0,1175,0,0,1046,0,0,1568,0,0,1046,0,0,1244,0,0,1397,0,0,1568,0,0,1046,0,0,1244,0,0,1397,0,0,1175,0,880,0,784,0,932,0,1244,0,0,1397,0,0,932,0,0,1175,0,0,1244,0,0,1175,0,0,932,0,0,1046,0,0,2093,0,622,0,831,0,932,0,1046,0,622,0,831,0,1046,0,0,1865,0,622,0,784,0,831,0,932,0,622,0,784,0,932,0,0,1661,0,523,0,698,0,784,0,831,0,523,0,698,0,831,0,0,1568,0,1046,0,1244,0,1397,0,1568,0,1046,0,1244,0,1397,0,0,0,1661,0,1046,0,1175,0,1244,0,831,0,1175,0,1244,0,0,0,0,2489,0,0,0,0,2794,0,0,0,0,3136,0,0,2093,0,622,0,831,0,932,0,1046,0,622,0,831,0,1046,0,0,1865,0,622,0,784,0,831,0,932,0,622,0,784,0,932,0,0,1661,0,523,0,698,0,784,0,831,0,523,0,698,0,831,0,0,1568,0,1046,0,1244,0,1397,0,1568,0,1046,0,1244,0,1397,0,0,0,1661,0,1046,0,1175,0,1244,0,831,0,1175,0,1244,0,0,0,0,2489,0,1397,0,0,0,2350,0,0,0,2489,0,0,0,2350,0,0,0,0,2093,0,392,0,415,0,466,0,523,0,392,0,415,0,466,0,523,0,392,0,415,0,466,0,2093,0,1568,0,1661,0,1865,0,2093,0,1568,0,1661,0,1865,0,2093,0,1568,0,1661,0,1865};
@@ -16,8 +15,16 @@ int frecuenciasImpacto[32] = {97,109,79,121,80,127,123,75,119,96,71,101,98,113,9
 int tiemposImpacto[32] = {10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10};
 
 int flags_juego = 0;
-
-
+int debounceTimes[5] = {0,0,0,0,0};
+int shotTime = 0;
+int init_isr = 0;
+// wait until next_activation (absolute time)
+void delay_until (unsigned int next) {
+	unsigned int now = millis();
+	if (next > now) {
+		delay (next - now);
+	}
+}
 
 //------------------------------------------------------
 // FUNCIONES DE CONFIGURACION/INICIALIZACION
@@ -33,14 +40,38 @@ int ConfiguraSistema (TipoSistema *p_sistema) {
 	int result = 0;
 	piLock(STD_IO_BUFFER_KEY);
 	if (wiringPiSetupGpio() < 0){
-		printf("Unable to setup wiringPi\n");
+		printf("Unable to setup wiringPi\n\n");
 		piUnlock(STD_IO_BUFFER_KEY);
 		return -1;
 	}
 	piUnlock(STD_IO_BUFFER_KEY);
 	softToneCreate(PLAYER_PWM_PIN);
 	softToneWrite(PLAYER_PWM_PIN, 0);
+	
+	pinMode (BUTTON_PIN_UP, INPUT);
+	pullUpDnControl(BUTTON_PIN_UP, PUD_UP);
+	wiringPiISR (BUTTON_PIN_UP, INT_EDGE_FALLING, button_up_isr);
 
+	pinMode (BUTTON_PIN_DOWN, INPUT);
+	pullUpDnControl(BUTTON_PIN_DOWN, PUD_UP);
+	wiringPiISR (BUTTON_PIN_DOWN, INT_EDGE_FALLING, button_down_isr);
+
+	pinMode (BUTTON_PIN_RIGHT, INPUT);
+	pullUpDnControl(BUTTON_PIN_RIGHT, PUD_UP);
+	wiringPiISR (BUTTON_PIN_RIGHT, INT_EDGE_FALLING, button_right_isr);
+
+	pinMode (BUTTON_PIN_LEFT, INPUT);
+	pullUpDnControl(BUTTON_PIN_LEFT, PUD_UP);
+	wiringPiISR (BUTTON_PIN_LEFT, INT_EDGE_FALLING, button_left_isr);
+
+	pinMode (BUTTON_PIN_CENTER, INPUT);
+	pullUpDnControl(BUTTON_PIN_CENTER, PUD_UP);
+	wiringPiISR (BUTTON_PIN_CENTER, INT_EDGE_FALLING, button_center_isr);
+
+	pinMode (IR_RX_PIN, INPUT);
+	digitalWrite(IR_RX_PIN, LOW);
+	pullUpDnControl(IR_RX_PIN, PUD_DOWN);
+	wiringPiISR (IR_RX_PIN, INT_EDGE_RISING, ir_led_rx_isr);
 	return result;
 }
 
@@ -53,12 +84,14 @@ int InicializaSistema (TipoSistema *p_sistema) {
 	int result = 0;
 	TipoPlayer player;
 	p_sistema->player = player;
-
-	// Lanzamos thread para exploracion del teclado convencional del PC
-	result = piThreadCreate (thread_explora_teclado);
+	TipoTorreta torreta;
+	p_sistema->torreta = torreta;
+	InicializaPlayer(&p_sistema->player);
+	InicializaTorreta(&p_sistema->torreta);
+	printf("Ahora el incremento es: %d \n", p_sistema->torreta.servo_x.incremento);
 
 	if (result != 0) {
-		printf ("Thread didn't start!!!\n");
+		printf ("Thread didn't start!!!\n\n");
 		return -1;
 	}
 
@@ -73,11 +106,14 @@ void fsm_stup (fsm_t* this){
 	piLock(PLAYER_FLAGS_KEY);
 	flags_player = 0;
 	piUnlock(PLAYER_FLAGS_KEY);
+	piLock(JUEGO_FLAGS_KEY);
+	flags_juego = 0;
+	piUnlock(JUEGO_FLAGS_KEY);
 
 	FinalEfecto(this);
 
 	piLock(STD_IO_BUFFER_KEY);
-	printf("Pulsa a para disparar, pulsa b para simular impacto, pulsa c para terminar la nota\n");
+	printf("Pulsa a para disparar, pulsa b para simular impacto, pulsa c para terminar la nota\n\n");
 	fflush(stdout);
 	piUnlock(STD_IO_BUFFER_KEY);
 	return;
@@ -85,33 +121,128 @@ void fsm_stup (fsm_t* this){
 //------------------------------------------------------
 // SUBRUTINAS DE ATENCION A LAS INTERRUPCIONES
 //------------------------------------------------------
-
-PI_THREAD (thread_explora_teclado) {
-	ExploraTeclado();
-}
-
-
-// wait until next_activation (absolute time)
-void delay_until (unsigned int next) {
-	unsigned int now = millis();
-	if (next > now) {
-		delay (next - now);
+static void button_up_isr (void) {
+	piLock(STD_IO_BUFFER_KEY);
+	printf("Boton arriba pulsado\n");
+	fflush(stdout);
+	piUnlock(STD_IO_BUFFER_KEY);
+	// Pin event (key / button event) debouncing procedure
+	if (millis () < debounceTimes[BUTTON_UP]) {
+		debounceTimes[BUTTON_UP] = millis () + DEBOUNCE_TIME ;
+		return;
 	}
+
+	piLock (JUEGO_FLAGS_KEY);
+	flags_juego |= FLAG_BUTTON_UP;
+	piUnlock (JUEGO_FLAGS_KEY);
+
+	debounceTimes[BUTTON_UP] = millis () + DEBOUNCE_TIME ;
 }
+static void button_down_isr (void) {
+	piLock(STD_IO_BUFFER_KEY);
+	printf("Boton abajo pulsado\n");
+	fflush(stdout);
+	piUnlock(STD_IO_BUFFER_KEY);
+	// Pin event (key / button event) debouncing procedure
+	if (millis () < debounceTimes[BUTTON_DOWN]) {
+		debounceTimes[BUTTON_DOWN] = millis () + DEBOUNCE_TIME ;
+		return;
+	}
+
+	piLock (JUEGO_FLAGS_KEY);
+	flags_juego |= FLAG_BUTTON_DOWN;
+	piUnlock (JUEGO_FLAGS_KEY);
+
+	debounceTimes[BUTTON_DOWN] = millis () + DEBOUNCE_TIME ;
+}
+static void button_left_isr (void) {
+	piLock(STD_IO_BUFFER_KEY);
+	printf("Boton izquierda pulsado\n");
+	fflush(stdout);
+	piUnlock(STD_IO_BUFFER_KEY);
+	// Pin event (key / button event) debouncing procedure
+	if (millis () < debounceTimes[BUTTON_LEFT]) {
+		debounceTimes[BUTTON_LEFT] = millis () + DEBOUNCE_TIME ;
+		return;
+	}
+
+	piLock (JUEGO_FLAGS_KEY);
+	flags_juego |= FLAG_BUTTON_LEFT;
+	piUnlock (JUEGO_FLAGS_KEY);
+
+	debounceTimes[BUTTON_LEFT] = millis () + DEBOUNCE_TIME ;
+}
+static void button_right_isr (void) {
+	piLock(STD_IO_BUFFER_KEY);
+	printf("Boton derecha pulsado\n");
+	fflush(stdout);
+	piUnlock(STD_IO_BUFFER_KEY);
+	// Pin event (key / button event) debouncing procedure
+	if (millis () < debounceTimes[BUTTON_RIGHT]) {
+		debounceTimes[BUTTON_RIGHT] = millis () + DEBOUNCE_TIME ;
+		return;
+	}
+
+	piLock (JUEGO_FLAGS_KEY);
+	flags_juego |= FLAG_BUTTON_RIGHT;
+	piUnlock (JUEGO_FLAGS_KEY);
+
+	debounceTimes[BUTTON_RIGHT] = millis () + DEBOUNCE_TIME ;
+}
+static void button_center_isr (void) {
+	piLock(STD_IO_BUFFER_KEY);
+	printf("Botton de disparo pulsado\n");
+	fflush(stdout);
+	piUnlock(STD_IO_BUFFER_KEY);
+	// Pin event (key / button event) debouncing procedure
+	if (millis () < debounceTimes[BUTTON_CENTER]) {
+		debounceTimes[BUTTON_CENTER] = millis () + DEBOUNCE_TIME ;
+		return;
+	}
+
+	piLock (JUEGO_FLAGS_KEY);
+	flags_juego |= FLAG_BUTTON_CENTER;
+	piUnlock (JUEGO_FLAGS_KEY);
+
+	debounceTimes[BUTTON_CENTER] = millis () + DEBOUNCE_TIME ;
+}
+static void ir_led_rx_isr (void) {
+	printf("Comparador dando señal activa\n");
+	if (init_isr == 0){
+		init_isr++;
+		return;
+	}
+	piLock(STD_IO_BUFFER_KEY);
+	printf("Comparador dando señal activa\n");
+	fflush(stdout);
+	piUnlock(STD_IO_BUFFER_KEY);
+	// Pin event (key / button event) debouncing procedure
+	if (millis () < shotTime + 520) {
+		return;
+	}
+
+	piLock (JUEGO_FLAGS_KEY);
+	flags_juego |= FLAG_TARGET_DONE;
+	piUnlock (JUEGO_FLAGS_KEY);
+
+	shotTime = millis();
+}
+
 
 int main ()
 {
 	TipoSistema sistema;
 	unsigned int next;
-	int num_notas;
 	char* nombre_efecto_disparo = "Disparo";
 	char* nombre_efecto_impacto = "Impacto";
 	// Configuracion e inicializacion del sistema
 	ConfiguraSistema (&sistema);
 	InicializaSistema (&sistema);
-	InicializaPlayer(&sistema.player);
-	num_notas = InicializaEfecto(&(sistema.player.efecto_disparo), nombre_efecto_disparo, &(frecuenciasDisparo), &(tiemposDisparo), 16);
-	num_notas = InicializaEfecto(&(sistema.player.efecto_impacto), &(nombre_efecto_impacto), &(frecuenciasImpacto), &(tiemposImpacto), 32);
+	printf("Ahora el incremento es: %d \n", sistema.torreta.servo_x.incremento);
+	//InicializaPlayer(&sistema.player);
+	InicializaEfecto(&(sistema.player.efecto_disparo), nombre_efecto_disparo, &(frecuenciasDisparo), &(tiemposDisparo), 16);
+	InicializaEfecto(&(sistema.player.efecto_impacto), &(nombre_efecto_impacto), &(frecuenciasImpacto), &(tiemposImpacto), 32);
+	
 	fsm_trans_t reproductor[] = {
 		{ WAIT_START, CompruebaStartDisparo, WAIT_NEXT, InicializaPlayDisparo },
 		{ WAIT_START, CompruebaStartImpacto, WAIT_NEXT, InicializaPlayImpacto },
@@ -121,17 +252,32 @@ int main ()
 		{ WAIT_END, CompruebaNuevaNota, WAIT_NEXT, ComienzaNuevaNota},
 		{-1, NULL, -1, NULL },
 	};
+	fsm_trans_t juego[] = {
+		{ WAIT_START, CompruebaComienzo, WAIT_MOVE, ComienzaSistema },
+		{ WAIT_MOVE, CompruebaButtonUp, WAIT_MOVE, MueveTorretaArriba },
+		{ WAIT_MOVE, CompruebaButtonDown, WAIT_MOVE, MueveTorretaAbajo },
+		{ WAIT_MOVE, CompruebaButtonLeft, WAIT_MOVE, MueveTorretaIzquierda },
+		{ WAIT_MOVE, CompruebaButtonRight, WAIT_MOVE, MueveTorretaDerecha },
+		{ WAIT_MOVE, CompruebaTimeoutDisparo, WAIT_MOVE, FinalDisparoIR },
+		{ WAIT_MOVE, CompruebaImpacto, WAIT_MOVE, ImpactoDetectado },
+		{ WAIT_MOVE, CompruebaTriggerButton, WAIT_MOVE, DisparoIR },
+		{ WAIT_MOVE, CompruebaFinalJuego, WAIT_END, FinalizaJuego },
+		{-1, NULL, -1, NULL },
+	};
 
 	fsm_t* player_fsm = fsm_new (WAIT_START, reproductor, &(sistema.player));
+	fsm_t* juego_fsm = fsm_new (WAIT_START, juego, &(sistema.torreta));
 	fsm_stup(player_fsm);
+
 	// A completar por el alumno...
 	// ...
-
+	piLock (JUEGO_FLAGS_KEY);
+	flags_juego |= FLAG_SYSTEM_START;
+	piUnlock (JUEGO_FLAGS_KEY);
 	next = millis();
 	while (1) {
 		fsm_fire (player_fsm);
-		// A completar por el alumno...
-		// ...
+		fsm_fire (juego_fsm);
 
 		next += CLK_MS;
 		delay_until (next);

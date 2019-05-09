@@ -117,12 +117,13 @@ void InicializaPlayDisparo (fsm_t* this) {
 
 	printf("\nInicializando disparo\n");
 	fflush(stdout);
-	char *nombre_efecto = "Disparo";
 	TipoPlayer *p_player;
 	p_player = (TipoPlayer*)(this->user_data);
 	p_player->p_efecto = &(p_player->efecto_disparo);
 
-
+	p_player->posicion_nota_actual = -1;
+	p_player->frecuencia_nota_actual= -1;
+	p_player->duracion_nota_actual=-1;
 	//p_efecto = (TipoEfecto*) p_player->p_efecto;
 	//p_efecto->nombre = nombre;
 
@@ -143,6 +144,30 @@ void InicializaPlayDisparo (fsm_t* this) {
 
 
 void InicializaPlayImpacto (fsm_t* this) {
+
+	printf("\nInicializando impacto\n");
+	fflush(stdout);
+	TipoPlayer *p_player;
+	p_player = (TipoPlayer*)(this->user_data);
+	p_player->p_efecto = &(p_player->efecto_impacto);
+
+	p_player->posicion_nota_actual = -1;
+	p_player->frecuencia_nota_actual= -1;
+	p_player->duracion_nota_actual=-1;
+	//p_efecto = (TipoEfecto*) p_player->p_efecto;
+	//p_efecto->nombre = nombre;
+
+	// strcpy(p_efecto->nombre , "disparo");
+	// memcpy(&(frecuenciasDisparo), &(p_efecto->frecuencias), 16);
+	// memcpy(&(tiemposDisparo), &(p_efecto->duraciones), 16);
+
+
+	piLock(PLAYER_FLAGS_KEY);
+	flags_player = 0;
+	piUnlock(PLAYER_FLAGS_KEY);
+	ActualizaPlayer(&(this));
+	ComienzaNuevaNota(&(this));
+	tmr_startms(p_player->tmr_duracion_notas,p_player->duracion_nota_actual);
 //	char *nombre_efecto = "Impacto";
 //	TipoPlayer *p_player;
 //	p_player = (TipoPlayer*)(this->user_data);
@@ -226,6 +251,9 @@ void FinalEfecto (fsm_t* this) {
 	p_player->duracion_nota_actual = -1;
 	flags_player = 0;
 	softToneWrite(PLAYER_PWM_PIN, 0);
+	piLock(JUEGO_FLAGS_KEY);
+	flags_juego |= FLAG_SHOOT_TIMEOUT;
+	piUnlock(JUEGO_FLAGS_KEY);
 }
 
 //------------------------------------------------------

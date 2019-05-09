@@ -14,7 +14,6 @@
 
 #include "kbhit.h" // Para poder detectar teclas pulsadas sin bloqueo y leer las teclas pulsadas
 #include "player.h"
-#include "teclado_TL04.h"
 #include "torreta.h"
 // Posibles estados de las FSMs
 enum fsm_state {
@@ -31,7 +30,13 @@ enum fsm_state {
 	TRIGGER_BUTTON
 };
 
-
+enum buttons_values {
+	BUTTON_UP,
+	BUTTON_DOWN,
+	BUTTON_RIGHT,
+	BUTTON_LEFT,
+	BUTTON_CENTER
+};
 
 typedef struct {
 	TipoTorreta torreta; // Objeto para el control de la torreta
@@ -45,6 +50,12 @@ typedef struct {
 int ConfiguraSistema (TipoSistema *p_sistema);
 int InicializaSistema (TipoSistema *p_sistema);
 void fsm_stup (fsm_t* this);
+static void button_up_isr (void);
+static void button_down_isr (void);
+static void button_left_isr (void);
+static void button_right_isr (void);
+static void button_center_isr (void);
+static void ir_led_rx_isr (void);
 //------------------------------------------------------
 // FUNCIONES LIGADAS A THREADS ADICIONALES
 //------------------------------------------------------
