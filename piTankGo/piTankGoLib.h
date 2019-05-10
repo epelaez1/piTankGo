@@ -10,7 +10,7 @@
 #define CLK_MS 10
 
 // INTERVALO DE GUARDA ANTI-REBOTES
-#define	DEBOUNCE_TIME	10
+#define	DEBOUNCE_TIME	100
 // DURACION DISPARO IR
 #define SHOOTING_PERIOD 500
 
@@ -38,7 +38,7 @@
 // Distribucion de pines GPIO empleada para el control de los servos
 #define	SERVO_VERTICAL_PIN		19
 #define	SERVO_HORIZONTAL_PIN	16
-#define SERVO_3V3_PIN           26
+// #define SERVO_3V3_PIN           26
 // PWM SW: el SO provoca que cuanto más alta sea la frecuencia de la señal PWM de control menos estable resulta esta (i.e. cimbreo del servo)
 // Interesa una frecuencia para la señal de control relativamente baja para minimizar el cimbreo
 // El problema es que tampoco puede ser demasiado baja o de lo contrario el control del servo se resiente y su respuesta es peor
