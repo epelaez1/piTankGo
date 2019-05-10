@@ -151,8 +151,6 @@ void ComienzaSistema (fsm_t* this) {
 	TipoTorreta *p_torreta;
 	p_torreta = (TipoTorreta*)(this->user_data);
 	wiringPiSetupGpio();
-	pinMode (SERVO_3V3_PIN, OUTPUT);
-	digitalWrite (SERVO_3V3_PIN, HIGH);
 	pinMode(IR_TX_PIN, OUTPUT);
 	digitalWrite(IR_TX_PIN, LOW);
 
